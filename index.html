@@ -15,30 +15,50 @@
           <div id="second-screen" class="hidden">
             <div id="taskbar">
                 <button id="go-to-first-screen" class="logo-button"><img id="logo" src="images/logo.png"></button>
-                <button class="cart-button"><img id="cart" src="images/cart.png" ></button>                
+                <button class="cart-button" onclick="openCartOverlay()"><img id="cart" src="images/cart.png"></button>
             </div>
             <div id="desktop">
-                <button class="icon"><img src="images/tshirt.png" alt="Shop"><span>Shop</span></button>
-                <button class="icon"><img src="images/sizes.png" alt="Sizes"><span>Sizing</span></button>
-                <button class="icon"><img src="images/shipping.png" alt="Shipping"><span>Shipping</span></button>
-                <button class="icon"><img src="images/signup.png" alt="Sign Up"><span>Sign Up</span></button>
-                <button class="icon"><img src="images/about.png" alt="About"><span>About us</span></button>
-                <button class="icon"><img src="images/contact.png" alt="Contact"><span>Contact</span></button>
+                <button class="icon"><img src="images/tshirt.png" alt="Shop"><span>SHOP</span></button>
+                <button class="icon"><img src="images/sizes.png" alt="Sizes"><span>SIZING</span></button>
+                <button class="icon"><img src="images/shipping.png" alt="Shipping"><span>SHIPPING</span></button>
+                <button class="icon"><img src="images/signup.png" alt="Sign Up"><span>SIGN UP</span></button>
+                <button class="icon"><img src="images/about.png" alt="About"><span>ABOUT US</span></button>
+                <button class="icon"><img src="images/contact.png" alt="Contact"><span>CONTACT</span></button>
             </div>
             
             <div id="shop-overlay" class="overlay hidden">
                 <div class="overlay-taskbar">
                   <span class="overlay-title">Shop</span>
-                  <button id="close-overlay">X</button>
+                  <button id="close-overlay"><img src="images/xbutton.png" alt="X"></button>
                 </div>
                 <div class="overlay-content">
-                  <!-- The content of the overlay will go here -->
+
+                     <div class="indicator" id="item-indicator"></div>
+                    <div id="product-container">
+                        <!-- Product items will be added here using JavaScript -->
+                    </div>
+                    
+                    
                 </div>
-              </div>
-            
-          </div>
+            </div>
+
+            <div id="cart-overlay" class="overlay hidden">
+                <div class="overlay-taskbar">
+                    <span class="overlay-title">Cart</span>
+                    <button id="close-cart-overlay"><img src="images/xbutton.png" alt="X"></button>
+                </div>
+                <div class="overlay-content">
+                    <div id="cart-items">
+                        <!-- Cart items will be added here using JavaScript -->
+                    </div>
+                    <div class="cart-total">
+                        Total: <span id="cart-total-price">$0</span>
+                    </div>
+                    <button class="buttonz" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
