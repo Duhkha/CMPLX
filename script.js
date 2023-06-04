@@ -36,10 +36,124 @@ document.querySelector('.icon img[alt="Shop"]').addEventListener('click', functi
   });
 
 
+//shipping
+  document.querySelector('.icon img[alt="Shipping"]').addEventListener('click', function() {
+    document.querySelector('#ship-overlay').classList.remove('hidden');
+  });
+  
+  document.querySelector('#close-overlay-ship').addEventListener('click', function() {
+    document.querySelector('#ship-overlay').classList.add('hidden');
+  });
+  function showContent() {
+    var selectedOption = document.getElementById("dropdown").value;
+    var contents = document.getElementsByClassName("content");
+  
+   
+    for (var i = 0; i < contents.length; i++) {
+      contents[i].style.display = "none";
+    }
+    var selectedContent = document.getElementById(selectedOption);
+    selectedContent.style.display = "block";
+  }
+  
+  //sizing
+  document.querySelector('.icon img[alt="Sizing"]').addEventListener('click', function() {
+    document.querySelector('#size-overlay').classList.remove('hidden');
+  });
+  
+  document.querySelector('#close-overlay-size').addEventListener('click', function() {
+    document.querySelector('#size-overlay').classList.add('hidden');
+  });
+
+  
+  //signup------------------------------------------------------------------------------------------------
+  document.querySelector('.icon img[alt="Signup"]').addEventListener('click', function() {
+    document.querySelector('#signup-overlay').classList.remove('hidden');
+  });
+const editableBox = document.querySelector('.editable-box');
+const submitBtn = document.querySelector('#submit-btn');
+const modal = document.getElementById('modal');
+
+editableBox.addEventListener('click', () => {
+  editableBox.textContent = '';
+});
+
+
+submitBtn.addEventListener('click', () => {
+
+  editableBox.textContent = '';
+
+  modal.style.display = 'block';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+  document.querySelector('#close-overlay-signup').addEventListener('click', function() {
+    document.querySelector('#signup-overlay').classList.add('hidden');
+  });
+
+
+  //about-------------------------------------------------------------------------------------------------
+
+  document.querySelector('.icon img[alt="About"]').addEventListener('click', function() {
+    document.querySelector('#about-overlay').classList.remove('hidden');
+  });
+  
+  document.querySelector('#close-overlay-about').addEventListener('click', function() {
+    document.querySelector('#about-overlay').classList.add('hidden');
+  });
+
+
+  //contact
+  document.querySelector('.icon img[alt="Contact"]').addEventListener('click', function() {
+    document.querySelector('#contact-overlay').classList.remove('hidden');
+  });
+  
+  document.querySelector('#close-overlay-contact').addEventListener('click', function() {
+    document.querySelector('#contact-overlay').classList.add('hidden');
+  });
+  
+  const contactb1 = document.querySelector('.subjectbox');
+const contactb2 = document.querySelector('.emailbox');
+const contactb3 = document.querySelector('.messagebox');
+const sendButton = document.querySelector('.stcbutton');
+const modal2 = document.getElementById('modal2');
+
+sendButton.addEventListener('click', () => {
+  contactb1.textContent = '';
+  contactb2.textContent = '';
+  contactb3.textContent = '';
+
+  modal2.style.display = 'block';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === modal2) {
+    modal2.style.display = 'none';
+  }
+});
+
+document.querySelector('#close-overlay-signup').addEventListener('click', function() {
+  document.querySelector('#signup-overlay').classList.add('hidden');
+});
+
+  
+
+
+
+
+
+
+  
+//------------------------------------
   function loadProductImage(imageUrl) {
     const mainImage = document.getElementById('main-image');
     mainImage.src = imageUrl;
   }
+  
   
 //cart
 
@@ -53,6 +167,7 @@ function openCartOverlay() {
 
 function openCartOverlay() {
   document.getElementById('shop-overlay').classList.add('hidden');
+  document.getElementById('ship-overlay').classList.add('hidden');
   document.getElementById('cart-overlay').classList.remove('hidden');
 }
 

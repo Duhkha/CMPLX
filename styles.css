@@ -1,28 +1,47 @@
-body {
-    font-family: 'Press Start 2P';
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #fff;
+/*filterscreen*/
+#oldschoolfilter {
+  position: fixed;
+  width: 80%;
+  height: 80%;
+  opacity: 0.18;
+  object-fit: fill;
+  
+  pointer-events: none;
 }
 
-#screen-container {
-    width: 80%;
-    height: 80%;
-    background-color: #9D9B9B;
-    position: relative;
+
+body {
+  font-family: 'Press Start 2P';
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000; /* Adjust this if you want a different color around the monitor bezel */
 }
 
 #monitor-frame {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  padding: 4%; /* Change this value to increase or decrease the monitor bezel */
+  background-color: #333; /* Color of the monitor bezel */
+  border-radius: 2%; /* Rounded corners of the monitor */
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
 }
+
+#screen-container {
+  width: 100%;
+  height: 100%;
+  background-color: #9D9B9B;
+  position: relative;
+}
+
+
 
 #first-screen, #second-screen {
     position: absolute;
@@ -34,11 +53,42 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 
 #first-screen {
-    z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
+#first-screen img {
+  display: block;
+  width: 50%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+#go-to-second-screen {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: 'Press Start 2P';
+}
+
+#go-to-second-screen:hover {
+  color: #007bff; /* Change the color on hover */
+}
+
 
 #second-screen {
     z-index: 1;
@@ -48,10 +98,10 @@ body {
 }
 
 #taskbar {
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     left: 0;
-    width: 100%;
+    width: calc(100% - 40px); /*100%;*/
     height: 50px;
     background-color: #9D9B9B;
     display: flex;
@@ -64,9 +114,11 @@ body {
 .logo-button,
 .cart-button {
     background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex; /* Add this line */
+    align-items: center; /* Add this line */
 }
 
 .logo-button img,
@@ -76,17 +128,18 @@ body {
 }
 
 .logo-button:hover img {
-    
     content: url(images/logo_white.png);
-  }
-  
-  .cart-button:hover img {
+}
+
+.cart-button:hover img {
     content: url(images/cart_white.png);
-  }
+}
 
 .cart-button {
-    margin-right: 35px;
+    margin-right: 0; /* Change this line to margin-right: 0px; */
+    margin-left: auto; /* Add this line */
 }
+
 
 #desktop {
     display: flex;
@@ -129,6 +182,7 @@ body {
 
 
 
+
 /* overlay*/
 
 
@@ -143,6 +197,7 @@ body {
   z-index: 2000;
   border: 4px solid black;
   border-radius: 10px 10px 0 0;
+
 }
 
 .overlay .overlay-taskbar {
@@ -170,6 +225,11 @@ body {
 }
 
 .overlay #close-overlay,
+.overlay #close-overlay-ship,
+.overlay #close-overlay-size,
+.overlay #close-overlay-signup,
+.overlay #close-overlay-about,
+.overlay #close-overlay-contact,
 .overlay #close-cart-overlay {
   background-color: transparent;
   border: none;
@@ -179,6 +239,11 @@ body {
 }
 
 .overlay #close-overlay img,
+.overlay #close-overlay-signup img,
+.overlay #close-overlay-ship img,
+.overlay #close-overlay-size img,
+.overlay #close-overlay-about img,
+.overlay #close-overlay-contact img,
 .overlay #close-cart-overlay img {
   width: 20px;
   height: 20px;
@@ -186,6 +251,11 @@ body {
 }
 
 .overlay #close-overlay:hover img,
+.overlay #close-overlay-signup:hover img,
+.overlay #close-overlay-ship:hover img,
+.overlay #close-overlay-size:hover img,
+.overlay #close-overlay-about:hover img,
+.overlay #close-overlay-contact:hover img,
 .overlay #close-cart-overlay:hover img {
   content: url(images/xbutton_on.png);
 }
@@ -314,8 +384,6 @@ body {
 
 
 
-
-
 /* CSS for Cart Items */
 .cart-item {
   display: flex;
@@ -359,4 +427,205 @@ body {
 
 
 
+/*signup*/
 
+.box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  margin-top: 15%;
+}
+
+.editable-box {
+  width: 60%;
+  height: 4px;
+  margin-top: 50%;
+  background-color: #d9d9d9;
+  margin: 0 auto;
+  padding: 10px;
+  resize: none;
+  overflow: auto;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.5);
+}
+#submit-btn:hover {
+cursor: pointer;
+border:4px solid #FFF; 
+color: #fff;
+transition: color 0.3s ease-in-out;
+transition: border 0.3s ease-in-out;
+}
+#submit-btn {
+border:4px solid rgba(186, 186, 186, 1);  
+border-radius: 10px;
+font-size: 14px;
+padding: 10px;
+font-family: 'Press Start 2P', cursive;
+display: block;
+position: relative;
+background-color: #d9d9d9;
+}
+.subsubmit-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #d9d9d9;
+  padding: 20px;
+  text-align: center;
+}
+
+
+/*shipping*/
+.container {
+  text-align: center;
+  margin-top:2%;
+}
+
+.content {
+  display: none;
+  margin-top: 20px;
+ 
+}
+
+#btn {
+  padding: 10;
+  font-size: 14px;
+}
+
+.regionselectcontainer {
+  text-align: center;
+  margin-top:15%;
+  font-size: 14;
+}
+#dropdown {
+  font-family: 'Press Start 2P';
+  font-size: 14px;
+  padding: 10px;
+  background-color: #D9D9D9;
+  border:4px solid rgba(186, 186, 186, 1);  
+border-radius: 10px;
+}
+
+#dropdown option {
+  font-family: 'Press Start 2P';
+  font-size: 14px;
+  padding: 10px;
+  background-color: #D9D9D9;
+}
+#dropdown:hover{
+  color: #fff;
+  border:4px solid #FFF;  
+  cursor:pointer;
+  transition: color 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
+}
+
+/*sizing*/
+.centerimage{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*contact*/
+.contactboxes{
+  
+  text-align: center;
+  width: 130px;
+  height: 14px;
+  padding: 15px;
+  border: 3px solid #000;
+  margin-top: 30px;
+  margin-left: 30px;
+  vertical-align: middle;
+  border-radius: 10px;
+  background-color: #575757;
+  
+}
+
+.boxflexing{
+  display:flex;
+}
+
+.emailbox,
+.subjectbox{
+  border-radius: 10px;
+  border: 3px solid #BABABA;
+  width:70%;
+  height: 44px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.messagebox{
+  border-radius: 10px;
+  border: 3px solid #BABABA;
+  width:70%;
+  height: 110px;
+  margin-top: 30px;
+  margin-left: 30px;
+  overflow-y: auto;
+}
+.sendbutton{
+text-align: center;
+margin-top: 30px;
+border-top: 2px solid #000;
+
+}
+.stcbutton{
+background-color: #575757;
+border: 4px solid #000;
+border-radius: 8px;
+font-family: 'Press Start 2P';
+font-size: 14px;
+padding: 15px;
+margin-top:20px;
+}
+.stcbutton:hover{
+  border-color: #fff;
+  color: #fff;
+  background-color: #2619e6;
+  transition: background-color 0.3s ease-in-out;
+  transition: color 0.5s ease-in-out;
+  transition: border 0.3s ease-in-out;
+  cursor:pointer;
+}
+.modal2 {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal2-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #d9d9d9;
+  padding: 20px;
+  text-align: center;
+}

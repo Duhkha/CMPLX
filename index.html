@@ -4,29 +4,35 @@
     <title>CMPLX</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/c3d.png">
 </head>
 <body>
-
-    <div id="screen-container">
-        <div id="monitor-frame">
+    <div id="monitor-frame">
+    
+        
+        <div id="screen-container">
+            <img src="images/ove.jpg" id="oldschoolfilter">
+            
           <div id="first-screen">
-            <button id="go-to-second-screen">Press Start</button>
+            <img src="images/LOGO_SEGA.png" alt="Photo">
+            <button id="go-to-second-screen"> > Press Start</button>
           </div>
           <div id="second-screen" class="hidden">
+            <img src="images/ove.jpg" id="oldschoolfilter">
             <div id="taskbar">
                 <button id="go-to-first-screen" class="logo-button"><img id="logo" src="images/logo.png"></button>
                 <button class="cart-button" onclick="openCartOverlay()"><img id="cart" src="images/cart.png"></button>
             </div>
             <div id="desktop">
                 <button class="icon"><img src="images/tshirt.png" alt="Shop"><span>SHOP</span></button>
-                <button class="icon"><img src="images/sizes.png" alt="Sizes"><span>SIZING</span></button>
+                <button class="icon"><img src="images/sizes.png" alt="Sizing"><span>SIZING</span></button>
                 <button class="icon"><img src="images/shipping.png" alt="Shipping"><span>SHIPPING</span></button>
-                <button class="icon"><img src="images/signup.png" alt="Sign Up"><span>SIGN UP</span></button>
+                <button class="icon"><img src="images/signup.png" alt="Signup"><span>SIGN UP</span></button>
                 <button class="icon"><img src="images/about.png" alt="About"><span>ABOUT US</span></button>
                 <button class="icon"><img src="images/contact.png" alt="Contact"><span>CONTACT</span></button>
             </div>
-            
-            <div id="shop-overlay" class="overlay hidden">
+            <!--shop-->
+            <div id="shop-overlay" class="overlay hidden">  
                 <div class="overlay-taskbar">
                   <span class="overlay-title">Shop</span>
                   <button id="close-overlay"><img src="images/xbutton.png" alt="X"></button>
@@ -41,7 +47,136 @@
                     
                 </div>
             </div>
+            <!--shipping-->
+            <div id="ship-overlay" class="overlay hidden">  
+                <div class="overlay-taskbar">
+                  <span class="overlay-title">Shipping</span>
+                  <button id="close-overlay-ship"><img src="images/xbutton.png" alt="X"></button>
+                </div>
+                <div class="overlay-content">
+                <div class="regionselectcontainer"><p id="regionselect">SELECT YOUR REGION</p></div>
+                <div class="container">
+                    <select id="dropdown" onchange="showContent()">
+                      <option value="content1">Europe</option>
+                      <option value="content2">Eastern Asia</option>
+                      <option value="content3">North America</option>
+                      <option value="content4">North Africa</option>
+                      <option value="content5">Australia</option>
+                      <option value="content6">Middle East</option>
+                    </select>
+                    
+                    <div id="content1" class="content">
+                      <p>15$</p>
+                      <div class="regionselectcontainer"><p>All orders above 150$ are free!</p></div>
+                    </div>
+                    <div id="content2" class="content">
+                      <p>25$</p>
+                      <div class="regionselectcontainer"><p>All orders above 200$ are free!</p></div>
+                    </div>
+                    <div id="content3" class="content">
+                      <p>30$</p>
+                      <div class="regionselectcontainer"><p>All orders above 200$ are free!</p></div>
+                    </div>
+                    <div id="content4" class="content">
+                      <p>20$</p>
+                      <div class="regionselectcontainer"><p>All orders above 150$ are free!</p></div>
+                    </div>                   
+                    <div id="content5" class="content">
+                      <p>40$</p>
+                      <div class="regionselectcontainer"><p>All orders above 200$ are free!</p></div>
+                    </div>    
+                    <div id="content6" class="content">
+                      <p>20$</p>
+                      <div class="regionselectcontainer"><p>All orders above 150$ are free!</p></div>
+                    </div>
 
+                  </div>
+                </div>
+            </div>
+            
+            <!--Sizing-->
+            <div id="size-overlay" class="overlay hidden">
+                <div class="overlay-taskbar">
+                  <span class="overlay-title">Sizing</span>
+                  <button id="close-overlay-size"><img src="images/xbutton.png" alt="X"></button>
+                </div>
+                <div class="overlay-content">
+                  <img src="images/H.png" alt="hoodiemarked" class="centerimage" width="25%">
+                  <img src="images/Hsizeas.png" alt="hoodiesizing"  class="centerimage" width="80%">
+                  <img src="images/T.png" alt="teemarked" class="centerimage"width="25%">
+                  <img src="images/Tsizes.png" alt="teesizing"  class="centerimage" width="80%">
+              </div>
+                
+            </div>
+           <!--signup-->
+            <div id="signup-overlay" class="overlay hidden"> 
+                <div class="overlay-taskbar">
+                  <span class="overlay-title">Sign Up</span>
+                  <button id="close-overlay-signup"><img src="images/xbutton.png" alt="X"></button>
+                </div>
+                <div class="overlay-content">
+                <div class="box-container">
+                    <div class="editable-box" contenteditable style>enter your email</div>
+                    
+                  </div>
+                  <div class="subsubmit-container">
+                    
+                    <button id="submit-btn">SUBMIT</button>
+                   
+                </div>
+                  
+                </div>
+                <div id="modal" class="modal">
+                  <div class="modal-content">
+                    <p>THANK YOU FOR SUBSCRIBING</p>
+                  </div>
+                </div>
+            </div>
+            <!--about us-->
+            <div id="about-overlay" class="overlay hidden">
+                <div class="overlay-taskbar">
+                  <span class="overlay-title">About us</span>
+                  <button id="close-overlay-about"><img src="images/xbutton.png" alt="X"></button>
+                </div>
+            </div>
+            <!--contact-->
+            <div id="contact-overlay" class="overlay hidden">
+                <div class="overlay-taskbar">
+                  <span class="overlay-title">contact</span>
+                  <button id="close-overlay-contact"><img src="images/xbutton.png" alt="X"></button>
+                </div>
+                  <div class="overlay-content">
+                    <div class="boxflexing">
+                    <div class="contactboxes">
+                      EMAIL
+                    </div>
+                    <div class="emailbox"contenteditable style></div>
+                  </div>
+                  <div class="boxflexing">
+                    <div class="contactboxes">
+                      SUBJECT
+                    </div>
+                    <div class="subjectbox"contenteditable style></div>
+                  </div>
+                    <div class="boxflexing">
+                    <div class="contactboxes">
+                      MESSAGE
+                    </div>
+                    <div class="messagebox"contenteditable style></div>
+                  </div>
+                  <div class="sendbutton"><button class="stcbutton">SEND TO CMPLX</button></div>
+                  
+
+
+                  </div>
+                  <div id="modal2" class="modal2">
+                    <div class="modal2-content">
+                      <p>SENT!</p>
+                    </div>
+                  </div>
+                             
+            </div>
+            <!--cart-->
             <div id="cart-overlay" class="overlay hidden">
                 <div class="overlay-taskbar">
                     <span class="overlay-title">Cart</span>
