@@ -19,13 +19,12 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000; /* Adjust this if you want a different color around the monitor bezel */
+  background-color: #000; 
 }
-
 #monitor-frame {
-  padding: 4%; /* Change this value to increase or decrease the monitor bezel */
-  background-color: #333; /* Color of the monitor bezel */
-  border-radius: 2%; /* Rounded corners of the monitor */
+  padding: 4%; 
+  background-color: #333; 
+  border-radius: 2%; 
   width: 80%;
   height: 80%;
   display: flex;
@@ -86,7 +85,7 @@ body {
 }
 
 #go-to-second-screen:hover {
-  color: #007bff; /* Change the color on hover */
+  color: #007bff; 
 }
 
 
@@ -117,8 +116,8 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
-    display: flex; /* Add this line */
-    align-items: center; /* Add this line */
+    display: flex; 
+    align-items: center; 
 }
 
 .logo-button img,
@@ -136,8 +135,8 @@ body {
 }
 
 .cart-button {
-    margin-right: 0; /* Change this line to margin-right: 0px; */
-    margin-left: auto; /* Add this line */
+    margin-right: 0; 
+    margin-left: auto; 
 }
 
 
@@ -371,7 +370,7 @@ body {
   }
   
   #cart-overlay {
-    z-index: 9999; /* Set a high z-index value to ensure it appears on top */
+    z-index: 9999; 
   }
   
 
